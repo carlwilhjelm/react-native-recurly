@@ -3,7 +3,7 @@ import {View, Text} from 'react-native'
 const Onboarding = () => {
   return (
     <View>
-      <Text>Onboarding</Text>
+      <Text className="text-orange-600">Onboarding</Text>
     </View>
   )
 }
