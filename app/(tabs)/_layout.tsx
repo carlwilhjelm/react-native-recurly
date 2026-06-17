@@ -1,22 +1,29 @@
 import { NativeTabs, Icon, Label } from 'expo-router/unstable-native-tabs';
+import '@/global.css';
 
 export default function TabLayout() {
     return (
-      <NativeTabs>
+      <NativeTabs backgroundColor="var(--color-primary)">
         <NativeTabs.Trigger name="index">
           <Label>Home</Label>
-          <Icon sf="house.fill" drawable="custom_android_drawable" />
+          <Icon
+            sf={{ default: 'house', selected: 'house.fill' }}
+            drawable="custom_android_drawable"
+          />
         </NativeTabs.Trigger>
         <NativeTabs.Trigger name="subscriptions">
-          <Icon sf="bag" drawable="custom_settings_drawable" />
+          <Icon sf={{ default: 'bag', selected: 'bag.fill' }} drawable="custom_settings_drawable" />
           <Label>Subscriptions</Label>
         </NativeTabs.Trigger>
         <NativeTabs.Trigger name="insights">
-          <Icon sf="eye" drawable="custom_settings_drawable" />
+          <Icon sf={{ default: 'eye', selected: 'eye.fill' }} drawable="custom_settings_drawable" />
           <Label>Insights</Label>
         </NativeTabs.Trigger>
         <NativeTabs.Trigger name="settings">
-          <Icon sf="gear" drawable="custom_settings_drawable" />
+          <Icon
+            sf={{ default: 'gear.circle', selected: 'gear.circle.fill' }}
+            drawable="custom_settings_drawable"
+          />
           <Label>Settings</Label>
         </NativeTabs.Trigger>
         <NativeTabs.Trigger name="subscriptions/[id].tsx" hidden={true}>
