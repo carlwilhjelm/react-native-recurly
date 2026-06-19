@@ -3,33 +3,24 @@ import '@/global.css';
 
 export default function TabLayout() {
     return (
-      <NativeTabs backgroundColor="var(--color-primary)">
+      <NativeTabs>
         <NativeTabs.Trigger name="index">
           <Label>Home</Label>
-          <Icon
-            sf={{ default: 'house', selected: 'house.fill' }}
-            drawable="custom_android_drawable"
-          />
+          <Icon sf={{ default: 'house', selected: 'house.fill' }}/>
         </NativeTabs.Trigger>
         <NativeTabs.Trigger name="subscriptions">
-          <Icon sf={{ default: 'bag', selected: 'bag.fill' }} drawable="custom_settings_drawable" />
+          <Icon sf={{ default: 'bag', selected: 'bag.fill' }} />
           <Label>Subscriptions</Label>
         </NativeTabs.Trigger>
         <NativeTabs.Trigger name="insights">
-          <Icon sf={{ default: 'eye', selected: 'eye.fill' }} drawable="custom_settings_drawable" />
+          <Icon sf={{ default: 'eye', selected: 'eye.fill' }} />
           <Label>Insights</Label>
         </NativeTabs.Trigger>
         <NativeTabs.Trigger name="settings">
-          <Icon
-            sf={{ default: 'gear.circle', selected: 'gear.circle.fill' }}
-            drawable="custom_settings_drawable"
-          />
+          <Icon sf={{ default: 'gear.circle', selected: 'gear.circle.fill' }} />
           <Label>Settings</Label>
         </NativeTabs.Trigger>
-        <NativeTabs.Trigger name="subscriptions/[id].tsx" hidden={true}>
-          <Icon sf="0.circle" drawable="custom_settings_drawable" />
-          <Label>Settings</Label>
-        </NativeTabs.Trigger>
+        <NativeTabs.Trigger name="subscriptions/[id].tsx" hidden={true} />
       </NativeTabs>
     );
 }

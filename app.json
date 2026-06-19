@@ -1,8 +1,12 @@
 {
   "expo": {
-    "name": "untitled",
-    "slug": "untitled",
+    "name": "react_native-recurrly",
+    "slug": "react_native-recurrly",
     "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "reactnativerecurrly",
+    "userInterfaceStyle": "automatic",
     "web": {
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
@@ -10,21 +14,13 @@
     "experiments": {
       "tsconfigPaths": true
     },
-    "plugins": [
-      "expo-router",
-      "expo-image-picker"
-    ],
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "plugins": ["expo-router", "expo-image-picker"],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
