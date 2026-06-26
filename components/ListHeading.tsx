@@ -1,6 +1,6 @@
 import {View, Text, TouchableOpacity} from 'react-native'
 import React from 'react'
-import { list_action, list_action_text, list_head, list_title} from '@/assets/utils';
+import { list_action, list_action_text, list_head, list_title} from '@/lib/utils';
 import {ListHeadingProps} from "@/src/type";
 
 const ListHeading = ({ title }: ListHeadingProps) => {

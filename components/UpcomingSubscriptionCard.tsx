@@ -8,8 +8,7 @@ import {
   upcoming_name,
   upcoming_price,
   upcoming_row,
-} from '@/assets/utils';
-import { formatCurrency } from '@/lib/utils';
+ formatCurrency } from '@/lib/utils';
 
 const UpcomingSubscriptionCard = ({
   name,
