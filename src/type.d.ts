@@ -1,17 +1,17 @@
 import type { ImageSourcePropType } from 'react-native';
 
- interface AppTab {
+export interface AppTab {
     name: string;
     title: string;
     icon: ImageSourcePropType;
   }
 
-  interface TabIconProps {
+export interface TabIconProps {
     focused: boolean;
     icon: ImageSourcePropType;
   }
 
-  interface Subscription {
+export interface Subscription {
     id: string;
     icon: ImageSourcePropType;
     name: string;
@@ -27,14 +27,14 @@ import type { ImageSourcePropType } from 'react-native';
     color?: string;
   }
 
-  interface SubscriptionCardProps extends Omit<Subscription, 'id'> {
+export interface SubscriptionCardProps extends Omit<Subscription, 'id'> {
     expanded: boolean;
     onPress: () => void;
     onCancelPress?: () => void;
     isCancelling?: boolean;
   }
 
-  interface UpcomingSubscription {
+export interface UpcomingSubscription {
     id: string;
     icon: ImageSourcePropType;
     name: string;
@@ -43,10 +43,8 @@ import type { ImageSourcePropType } from 'react-native';
     daysLeft: number;
   }
 
-  interface UpcomingSubscriptionCardProps extends Omit<UpcomingSubscription, 'id'> {}
+export interface UpcomingSubscriptionCardProps extends Omit<UpcomingSubscription, 'id'> {}
 
-  interface ListHeadingProps {
+export interface ListHeadingProps {
     title: string;
   }
-
-export {UpcomingSubscription, Subscription};

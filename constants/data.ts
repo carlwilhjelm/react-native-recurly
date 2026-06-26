@@ -1,5 +1,5 @@
 import { icons } from './icons';
-import { Subscription, UpcomingSubscription } from '../src/type'; // Import from the specific module
+import { Subscription, UpcomingSubscription } from '@/src/type'; // Import from the specific module
 
 export const HOME_USER = {
   name: 'Adrian | JS Mastery',
