@@ -1,5 +1,5 @@
 {
-  "name": "untitled",
+  "name": "recurly",
   "version": "1.0.0",
   "scripts": {
     "android": "expo start --android",
@@ -11,6 +11,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@clerk/expo": "^3.6.4",
     "@react-navigation/bottom-tabs": "^7.18.2",
     "babel-preset-expo": "54.0.10",
     "clsx": "^2.1.1",
@@ -22,6 +23,7 @@
     "expo-image-picker": "~17.0.11",
     "expo-linking": "~8.0.12",
     "expo-router": "~6.0.23",
+    "expo-secure-store": "~15.0.8",
     "expo-status-bar": "~3.0.9",
     "nativewind": "4.2.4",
     "react": "19.1.0",

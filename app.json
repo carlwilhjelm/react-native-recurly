@@ -14,20 +14,41 @@
     "experiments": {
       "tsconfigPaths": true
     },
-    "plugins": ["expo-router", "expo-image-picker"],
+    "plugins": [
+      "expo-router",
+      "expo-image-picker",
+      "@clerk/expo",
+      "expo-secure-store"
+    ],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "myIosBundle",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.anonymous.react_nativerecurrly"
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "b73a1640-f9f5-4c79-b973-ef37e3d74a3d"
       }
     }
   }

@@ -58,7 +58,7 @@ const SubscriptionCard = ({
         </View>
         <View className={sub_price_box}>
           <Text className={sub_price}>{formatCurrency(price, currency)}</Text>
-          <Text className={sub_billing}>{billing}</Text>
+          <Text className={sub_billing}>{billing ?? 'Not Provided'}</Text>
         </View>
       </View>
       {expanded && (
@@ -68,7 +68,7 @@ const SubscriptionCard = ({
               <View className={sub_row_copy}>
                 <Text className={sub_label}>Payment:</Text>
                 <Text className={sub_value} numberOfLines={1} ellipsizeMode={'tail'}>
-                  {paymentMethod?.trim()}
+                  {paymentMethod?.trim() ?? 'Not Provided'}
                 </Text>
               </View>
             </View>
@@ -78,7 +78,7 @@ const SubscriptionCard = ({
             <View className={sub_row_copy}>
               <Text className={sub_label}>Category:</Text>
               <Text className={sub_value} numberOfLines={1} ellipsizeMode={'tail'}>
-                {category?.trim()}
+                {category?.trim() ?? 'Not Provided'}
               </Text>
             </View>
           </View>
@@ -109,8 +109,6 @@ const SubscriptionCard = ({
               </Text>
             </View>
           </View>
-
-
         </View>
       )}
     </Pressable>
