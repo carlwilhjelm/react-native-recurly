@@ -32,7 +32,7 @@ export default function App() {
   const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<string | null>(null);
   const { user } = useUser();
   const displayName =
-    user?.firstName || user?.fullName || user?.emailAddresses[0]?.emailAddress || 'User';
+    user?.firstName || user?.fullName || user?.primaryEmailAddress?.emailAddress || 'User';
   return (
     <SafeAreaView className="flex-1 bg-background p-5">
       <FlatList
