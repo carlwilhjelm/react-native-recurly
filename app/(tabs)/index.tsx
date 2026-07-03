@@ -4,7 +4,6 @@ import images from '@/constants/images';
 import {
   HOME_BALANCE,
   HOME_SUBSCRIPTIONS,
-  HOME_USER,
   UPCOMING_SUBSCRIPTIONS,
 } from '@/constants/data';
 import { icons } from '@/constants/icons';
@@ -27,9 +26,13 @@ import {
 import UpcomingSubscriptionCard from "@/components/UpcomingSubscriptionCard";
 import SubscriptionCard from '@/components/SubscriptionCard';
 import { useState } from 'react';
+import { useUser } from '@clerk/expo';
 
 export default function App() {
   const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<string | null>(null);
+  const { user } = useUser();
+  const displayName =
+    user?.firstName || user?.fullName || user?.emailAddresses[0]?.emailAddress || 'User';
   return (
     <SafeAreaView className="flex-1 bg-background p-5">
       <FlatList
@@ -37,8 +40,11 @@ export default function App() {
           <>
             <View className={home_header}>
               <View className={home_user}>
-                <Image source={images.avatar} className={home_avatar} />
-                <Text className={home_user_name}>{HOME_USER.name}</Text>
+                <Image
+                  source={user?.imageUrl ? { uri: user.imageUrl } : images.avatar}
+                  className={home_avatar}
+                />
+                <Text className={home_user_name}>{displayName}</Text>
                 <Image source={icons.add} className={home_add_icon}></Image>
               </View>
             </View>
