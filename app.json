@@ -18,7 +18,8 @@
       "expo-router",
       "expo-image-picker",
       "@clerk/expo",
-      "expo-secure-store"
+      "expo-secure-store",
+      "expo-localization"
     ],
     "splash": {
       "image": "./assets/splash.png",

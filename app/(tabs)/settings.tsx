@@ -3,11 +3,13 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuth, useUser } from '@clerk/expo';
 import images from '@/constants/images';
+import { usePostHog } from 'posthog-react-native';
 import { home_avatar } from '@/lib/utils';
 
 const Settings = () => {
   const { signOut } = useAuth();
   const { user } = useUser();
+  const posthog = usePostHog();
 
   const email = user?.primaryEmailAddress?.emailAddress ?? '—';
   const fullName = user?.fullName ?? 'Account';
@@ -46,7 +48,11 @@ const Settings = () => {
         {/* Sign Out */}
         <Pressable
           className="items-center rounded-2xl bg-red-500 p-4"
-          onPress={() => signOut()}
+          onPress={() => {
+            posthog.capture('user_signed_out');
+            posthog.reset();
+            signOut();
+          }}
         >
           <Text className="font-semibold text-white">Sign Out</Text>
         </Pressable>
