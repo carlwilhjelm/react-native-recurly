@@ -19,7 +19,7 @@ import {
   sub_row_copy,
   sub_title, sub_value,
 } from '@/lib/utils';
-import clsx from 'clsx';
+import { clsx } from 'clsx';   
 
 const SubscriptionCard = ({
   name,
