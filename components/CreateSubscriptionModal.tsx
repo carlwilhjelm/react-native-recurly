@@ -67,7 +67,7 @@ const CreateSubscriptionModal = ({ visible, onClose, onSubmit }: Props) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [frequency, setFrequency] = useState<Frequency>('Monthly');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('Other');
 
   const priceNum = parseFloat(price);
   const isValid = name.trim().length > 0 && !isNaN(priceNum) && priceNum > 0;
@@ -89,7 +89,7 @@ const CreateSubscriptionModal = ({ visible, onClose, onSubmit }: Props) => {
 
       currency: 'USD',
       billing: frequency,
-      category: category || 'Other',
+      category: category,
       status: 'active',
       startDate,
       renewalDate,
@@ -111,7 +111,7 @@ const CreateSubscriptionModal = ({ visible, onClose, onSubmit }: Props) => {
     setName('');
     setPrice('');
     setFrequency('Monthly');
-    setCategory('');
+    setCategory('Other');
   };
 
   const handleClose = () => {

@@ -16,7 +16,7 @@ const Subscriptions = () => {
     return subscriptions.filter(
       (s) =>
         s.name.toLowerCase().includes(q) ||
-        s.category?.toLowerCase().includes(q) ||
+        s.category.toLowerCase().includes(q) ||
         s.plan?.toLowerCase().includes(q),
     );
   }, [search, subscriptions]);
