@@ -9,7 +9,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import clsx from 'clsx';
+import { clsx } from 'clsx';   
 import dayjs from 'dayjs';
 import { icons } from '@/constants/icons';
 import { Subscription } from '@/src/type';
@@ -88,13 +88,12 @@ const CreateSubscriptionModal = ({ visible, onClose, onSubmit }: Props) => {
 
       currency: 'USD',
       billing: frequency,
-      frequency,
       category: category || 'Other',
       status: 'active',
       startDate,
       renewalDate,
       color: CATEGORY_COLORS[category] ?? CATEGORY_COLORS['Other'],
-    } as Subscription;
+    }
 
     onSubmit(subscription);
     resetForm();
