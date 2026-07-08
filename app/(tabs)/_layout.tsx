@@ -2,6 +2,7 @@ import { useAuth } from '@clerk/expo';
 import { Redirect, SplashScreen} from 'expo-router';
 import { NativeTabs, Icon, Label } from 'expo-router/unstable-native-tabs';
 import '@/global.css';
+import { SubscriptionsProvider } from '@/context/SubscriptionsContext';
 
 export default function TabLayout() {
   SplashScreen.preventAutoHideAsync();
@@ -17,6 +18,7 @@ export default function TabLayout() {
   }
 
   return (
+    <SubscriptionsProvider>
     <NativeTabs>
       <NativeTabs.Trigger name="index">
         <Label>Home</Label>
@@ -36,5 +38,6 @@ export default function TabLayout() {
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="subscriptions/[id].tsx" hidden={true} />
     </NativeTabs>
+    </SubscriptionsProvider>
   );
 }
