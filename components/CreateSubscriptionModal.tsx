@@ -31,6 +31,7 @@ import {
   category_chip_text,
   category_chip_text_active,
 } from '@/lib/utils';
+import { posthog } from '@/src/config/posthog';
 
 const CATEGORIES = [
   'Entertainment',
@@ -93,9 +94,15 @@ const CreateSubscriptionModal = ({ visible, onClose, onSubmit }: Props) => {
       startDate,
       renewalDate,
       color: CATEGORY_COLORS[category] ?? CATEGORY_COLORS['Other'],
-    }
+    };
 
     onSubmit(subscription);
+    posthog.capture('subscription_created', {
+      subscription_name: subscription.name.trim(),
+      subscription_price: subscription.price,
+      subscription_billing: subscription.billing,
+      subscription_category: subscription.category,
+    });
     resetForm();
     onClose();
   };
