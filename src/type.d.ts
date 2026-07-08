@@ -16,7 +16,7 @@ export interface Subscription {
     icon: ImageSourcePropType;
     name: string;
     plan?: string;
-    category?: string;
+    category: string;
     paymentMethod?: string;
     status?: string;
     startDate?: string;

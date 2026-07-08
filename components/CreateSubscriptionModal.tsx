@@ -31,6 +31,7 @@ import {
   category_chip_text,
   category_chip_text_active,
 } from '@/lib/utils';
+import { posthog } from '@/src/config/posthog';
 
 const CATEGORIES = [
   'Entertainment',
@@ -66,7 +67,7 @@ const CreateSubscriptionModal = ({ visible, onClose, onSubmit }: Props) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [frequency, setFrequency] = useState<Frequency>('Monthly');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('Other');
 
   const priceNum = parseFloat(price);
   const isValid = name.trim().length > 0 && !isNaN(priceNum) && priceNum > 0;
@@ -88,14 +89,20 @@ const CreateSubscriptionModal = ({ visible, onClose, onSubmit }: Props) => {
 
       currency: 'USD',
       billing: frequency,
-      category: category || 'Other',
+      category: category,
       status: 'active',
       startDate,
       renewalDate,
       color: CATEGORY_COLORS[category] ?? CATEGORY_COLORS['Other'],
-    }
+    };
 
     onSubmit(subscription);
+    posthog.capture('subscription_created', {
+      subscription_name: subscription.name.trim(),
+      subscription_price: subscription.price,
+      subscription_billing: subscription.billing,
+      subscription_category: subscription.category,
+    });
     resetForm();
     onClose();
   };
@@ -104,7 +111,7 @@ const CreateSubscriptionModal = ({ visible, onClose, onSubmit }: Props) => {
     setName('');
     setPrice('');
     setFrequency('Monthly');
-    setCategory('');
+    setCategory('Other');
   };
 
   const handleClose = () => {
