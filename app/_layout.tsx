@@ -8,6 +8,7 @@ import { posthog } from '@/src/config/posthog';
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 
 if (!publishableKey) {
+  posthog.logger.error('Missing Clerk Publishable Key');
   throw new Error('Add your Clerk Publishable Key to the .env file');
 }
 
