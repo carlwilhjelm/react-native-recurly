@@ -1,0 +1,31 @@
+{
+  "cli": {
+    "version": ">= 20.5.1",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "node": "22.0.0",
+      "env": {
+        "EXPO_PUBLIC_CLERK_GOOGLE_IOS_URL_SCHEME": "com.googleusercontent.apps.746417331749-lmqnuotn7lhql1d3puq0ckvlso2hp059.apps.googleusercontent.com"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "node": "22.0.0"
+    },
+    "production": {
+      "autoIncrement": true,
+      "node": "22.0.0",
+      "environment": "production",
+      "env": {
+        "EXPO_PUBLIC_CLERK_GOOGLE_IOS_URL_SCHEME": "com.googleusercontent.apps.746417331749-lmqnuotn7lhql1d3puq0ckvlso2hp059.apps.googleusercontent.com"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
