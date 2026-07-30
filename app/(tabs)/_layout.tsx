@@ -3,6 +3,7 @@ import { Redirect, SplashScreen} from 'expo-router';
 import { NativeTabs, Icon, Label } from 'expo-router/unstable-native-tabs';
 import '@/global.css';
 import { SubscriptionsProvider } from '@/context/SubscriptionsContext';
+import Constants, { ExecutionEnvironment } from 'expo-constants';
 
 export default function TabLayout() {
   SplashScreen.preventAutoHideAsync();
@@ -12,9 +13,14 @@ export default function TabLayout() {
   if (!isLoaded) {
     return null;
   }
+  const isExpoGo = Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
 
   if (!isSignedIn) {
-    return <Redirect href="/(auth)/sign-in" />;
+    if (isExpoGo) {
+      return <Redirect href="/(auth)/sign-in.expo" />;
+    } else {
+      return <Redirect href="/(auth)/sign-in" />;
+    }
   }
 
   return (
