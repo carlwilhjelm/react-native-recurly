@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "react_native-recurrly",
-    "slug": "react_native-recurrly",
+    "name": "Recurrly",
+    "slug": "recurrly",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/icons/logo.png",
     "scheme": "reactnativerecurrly",
     "userInterfaceStyle": "automatic",
     "web": {
@@ -22,7 +22,7 @@
       "expo-localization"
     ],
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/splash-pattern.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -31,7 +31,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "myIosBundle",
+      "bundleIdentifier": "com.carlwilhjelm.recurrly",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -44,13 +44,16 @@
       "permissions": [
         "android.permission.RECORD_AUDIO"
       ],
-      "package": "com.anonymous.react_nativerecurrly"
+      "package": "com.carlwilhjelm.recurrly"
     },
     "extra": {
+      "EXPO_PUBLIC_CLERK_GOOGLE_WEB_CLIENT_ID": "746417331749-cotq4lkap3b67nh8qr9qiq3vhdi3l6nd.apps.googleusercontent.com",
+      "EXPO_PUBLIC_CLERK_GOOGLE_IOS_CLIENT_ID": "746417331749-lmqnuotn7lhql1d3puq0ckvlso2hp059.apps.googleusercontent.com",
       "router": {},
       "eas": {
-        "projectId": "b73a1640-f9f5-4c79-b973-ef37e3d74a3d"
+        "projectId": "e9e523e3-8d31-4275-81ad-d9a3c68b6f39"
       }
-    }
+    },
+    "owner": "carlwilhjelm"
   }
 }
