@@ -55,11 +55,10 @@ const SignIn = () => {
             return;
           }
 
-          posthog.identify(emailAddress, {
-            $set: { email: emailAddress },
+          posthog.identify(session?.id ?? '', {
             $set_once: { first_sign_in_date: new Date().toISOString() },
           });
-          posthog.capture('user_signed_in', { email: emailAddress });
+          posthog.capture('user_signed_in');
 
           const url = decorateUrl('/(tabs)');
           if (url.startsWith('http')) {
@@ -76,8 +75,8 @@ const SignIn = () => {
         },
       });
     } else if (signIn.status === 'needs_second_factor') {
-      // Handle MFA if needed (not implemented in this basic flow)
-      console.log('MFA required');
+      // Send MFA email code and let the verification screen handle input
+      await signIn.mfa.sendEmailCode();
     } else if (signIn.status === 'needs_client_trust') {
       // Send email code for client trust verification
       const emailCodeFactor = signIn.supportedSecondFactors.find(
@@ -104,11 +103,10 @@ const SignIn = () => {
           }
 
           // Track successful sign-in after verification
-          posthog.identify(emailAddress, {
-            $set: { email: emailAddress },
+          posthog.identify(session?.id ?? '', {
             $set_once: { first_sign_in_date: new Date().toISOString() },
           });
-          posthog.capture('user_signed_in', { email: emailAddress });
+          posthog.capture('user_signed_in');
 
           const url = decorateUrl('/(tabs)');
           if (url.startsWith('http')) {
@@ -129,8 +127,8 @@ const SignIn = () => {
     }
   };
 
-  // Show verification screen if client trust is needed
-  if (signIn.status === 'needs_client_trust') {
+  // Show verification screen if client trust or second factor is needed
+  if (signIn.status === 'needs_client_trust' || signIn.status === 'needs_second_factor') {
     return (
       <SafeAreaView className="auth-safe-area">
         <KeyboardAvoidingView
